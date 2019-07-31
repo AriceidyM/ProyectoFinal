@@ -50,7 +50,7 @@ namespace ProyectoFerreteria.UI.Registros
             ProductoComboBox.DisplayMember = "Descripcion";
         }
 
-        private Ventas LlenaClase()
+        private Ventas LlenaClase() 
         {
             Ventas venta = new Ventas();
 
