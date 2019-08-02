@@ -276,9 +276,18 @@ namespace ProyectoFerreteria.UI.Registros
 
             if (IdNumericUpDown.Value == 0)
             {
-                Paso = repositorio.Guardar(venta);
-                MessageBox.Show("Guardado!!", "Exito",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (TipoVentacomboBox.SelectedIndex == 0)
+                {
+                    Paso = VentasBLL.Guardar(venta);
+                    MessageBox.Show("Guardado!!", "Exito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if(TipoVentacomboBox.SelectedIndex == 1)
+                {
+                    Paso = repositorio.Guardar(venta);
+                    MessageBox.Show("Guardado!!", "Exito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {

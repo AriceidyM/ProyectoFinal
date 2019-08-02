@@ -1,4 +1,5 @@
-﻿using ProyectoFerreteria.UI.Registros;
+﻿using ProyectoFerreteria.UI.Consultas;
+using ProyectoFerreteria.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,6 +47,36 @@ namespace ProyectoFerreteria
         {
             rVentas rVentas = new rVentas();
             rVentas.Show();
+        }
+
+        private void ClientesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cClientes cClientes = new cClientes();
+            cClientes.Show();
+        }
+
+        private void EntradasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cEntradas cEntradas = new cEntradas();
+            cEntradas.Show();
+        }
+
+        private void ProductosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cProductos cProductos = new cProductos();
+            cProductos.Show();
+        }
+
+        private void UsuariosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cUsuarios cUsuarios = new cUsuarios();
+            cUsuarios.Show();
+        }
+
+        private void VentasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cVentas cVentas = new cVentas();
+            cVentas.Show();
         }
     }
 }

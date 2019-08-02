@@ -10,6 +10,33 @@ namespace BLL
 {
     public class VentasBLL
     {
+        public static bool Guardar(Ventas venta)
+        {
+            bool paso = false;
+            Contexto contexto = new Contexto();
+            try
+            {
+                if (contexto.Ventas.Add(venta) != null)
+
+                    foreach (var item in venta.Detalle)
+                    {
+                        contexto.Productos.Find(item.ProductoId).Existencia -= (int)item.Cantidad;
+                    }
+
+                contexto.Cliente.Find(venta.ClienteId).Deuda += (int)venta.Total;
+
+                contexto.SaveChanges();
+                paso = true;
+
+                contexto.Dispose();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
+        }
+
         public static Ventas Buscar(int id)
         {
             Contexto contexto = new Contexto();

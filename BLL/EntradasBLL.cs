@@ -116,7 +116,7 @@ namespace BLL
         }
 
 
-        public List<Entradas> GetList(Expression<Func<Entradas, bool>> expression)
+        public static List<Entradas> GetList(Expression<Func<Entradas, bool>> expression)
         {
             List<Entradas> entradas = new List<Entradas>();
             Contexto contexto = new Contexto();
