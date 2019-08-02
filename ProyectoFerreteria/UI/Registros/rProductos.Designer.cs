@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rProductos));
             this.PrecionumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.ExistenciatextBox = new System.Windows.Forms.TextBox();
             this.Existencialabel = new System.Windows.Forms.Label();
@@ -76,7 +75,7 @@
             // 
             // Buscarbutton
             // 
-            this.Buscarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Buscarbutton.Image")));
+            this.Buscarbutton.Image = global::ProyectoFerreteria.Properties.Resources.search_black_icon;
             this.Buscarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Buscarbutton.Location = new System.Drawing.Point(160, 5);
             this.Buscarbutton.Name = "Buscarbutton";
@@ -89,7 +88,7 @@
             // 
             // Eliminarbutton
             // 
-            this.Eliminarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Eliminarbutton.Image")));
+            this.Eliminarbutton.Image = global::ProyectoFerreteria.Properties.Resources.delete_file_icon;
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.Eliminarbutton.Location = new System.Drawing.Point(180, 171);
             this.Eliminarbutton.Name = "Eliminarbutton";
@@ -102,7 +101,7 @@
             // 
             // Guardarbutton
             // 
-            this.Guardarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Guardarbutton.Image")));
+            this.Guardarbutton.Image = global::ProyectoFerreteria.Properties.Resources.Save_icon;
             this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Guardarbutton.Location = new System.Drawing.Point(97, 171);
             this.Guardarbutton.Name = "Guardarbutton";
@@ -115,7 +114,7 @@
             // 
             // Nuevobutton
             // 
-            this.Nuevobutton.Image = ((System.Drawing.Image)(resources.GetObject("Nuevobutton.Image")));
+            this.Nuevobutton.Image = global::ProyectoFerreteria.Properties.Resources.new_file_icon;
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.Nuevobutton.Location = new System.Drawing.Point(12, 171);
             this.Nuevobutton.Name = "Nuevobutton";
@@ -193,6 +192,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::ProyectoFerreteria.Properties.Resources.productos;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(270, 214);
             this.Controls.Add(this.PrecionumericUpDown);
             this.Controls.Add(this.ExistenciatextBox);
