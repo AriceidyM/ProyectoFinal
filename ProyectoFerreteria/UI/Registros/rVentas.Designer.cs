@@ -101,7 +101,7 @@
             // 
             // ItbisTextBox
             // 
-            this.ItbisTextBox.Location = new System.Drawing.Point(74, 394);
+            this.ItbisTextBox.Location = new System.Drawing.Point(74, 375);
             this.ItbisTextBox.Name = "ItbisTextBox";
             this.ItbisTextBox.ReadOnly = true;
             this.ItbisTextBox.Size = new System.Drawing.Size(100, 20);
@@ -109,7 +109,7 @@
             // 
             // SubTotalTextBox
             // 
-            this.SubTotalTextBox.Location = new System.Drawing.Point(74, 375);
+            this.SubTotalTextBox.Location = new System.Drawing.Point(74, 394);
             this.SubTotalTextBox.Name = "SubTotalTextBox";
             this.SubTotalTextBox.ReadOnly = true;
             this.SubTotalTextBox.Size = new System.Drawing.Size(100, 20);

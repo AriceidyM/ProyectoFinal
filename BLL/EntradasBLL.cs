@@ -12,7 +12,7 @@ namespace BLL
 {
     public class EntradasBLL
     {
-        public bool Guardar(Entradas entrada)
+        public static bool Guardar(Entradas entrada)
         {
             bool paso = false;
 
@@ -36,7 +36,7 @@ namespace BLL
         }
 
 
-        public bool Modificar(Entradas entrada)
+        public static bool Modificar(Entradas entrada)
         {
             bool paso = false;
 
@@ -71,7 +71,7 @@ namespace BLL
         }
 
 
-        public bool Eliminar(int id)
+        public static bool Eliminar(int id)
         {
             bool paso = false;
 
@@ -98,7 +98,7 @@ namespace BLL
         }
 
 
-        public Entradas Buscar(int id)
+        public static Entradas Buscar(int id)
         {
             Contexto contexto = new Contexto();
             Entradas entrada = new Entradas();

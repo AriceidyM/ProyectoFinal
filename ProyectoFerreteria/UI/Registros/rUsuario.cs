@@ -37,6 +37,7 @@ namespace ProyectoFerreteria.UI.Registros
             usuarios.Usuario = UsuariotextBox.Text;
             usuarios.Clave = ClavetextBox.Text;
             usuarios.FechaIngreso = DateTime.Now;
+            
 
             return usuarios;
         }
@@ -84,6 +85,12 @@ namespace ProyectoFerreteria.UI.Registros
             if (ConfirmaciontextBox.Text != ClavetextBox.Text)
             {
                 errorProvider.SetError(ConfirmaciontextBox, "La contraseña no coincide");
+                paso = false;
+            }
+
+            if (UsuarioradioButton.Text == string.Empty)
+            {
+                errorProvider.SetError(UsuarioradioButton, "Debe llenar el campo");
                 paso = false;
             }
             return paso;

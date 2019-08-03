@@ -34,6 +34,7 @@ namespace ProyectoFerreteria.UI.Registros
             Entradas inventario = new Entradas();
             inventario.EntradaId = Convert.ToInt32(EntradaInventarioIdnumericUpDown.Value);
             inventario.ProductoId = Convert.ToInt32(ProductocomboBox.SelectedValue);
+            inventario.producto = ProductocomboBox.Text;
             inventario.Cantidad = Convert.ToInt32(CantidadnumericUpDown.Value);
             inventario.Fecha = DateTime.Now;
 
@@ -102,15 +103,17 @@ namespace ProyectoFerreteria.UI.Registros
             if (!Validar())
                 return;
             bool paso = false;
-            EntradasBLL dbe = new EntradasBLL();
-            Entradas inventario = new Entradas();
+            EntradasBLL entradas = new EntradasBLL();
+            Repositorio<Entradas> repositorio = new Repositorio<Entradas>(new Contexto());
+            Entradas inventario = LlenaClase();
 
-            inventario = LlenaClase();
+            
 
 
             if (EntradaInventarioIdnumericUpDown.Value == 0)
             {
-                paso = dbe.Guardar(inventario);
+                paso = repositorio.Guardar(inventario);
+
             }
             else
             {
@@ -119,7 +122,7 @@ namespace ProyectoFerreteria.UI.Registros
                     MessageBox.Show("No se puede modificar un producto que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                paso = dbe.Modificar(inventario);
+                paso = repositorio.Modificar(inventario);
             }
 
             if (paso)
@@ -131,6 +134,7 @@ namespace ProyectoFerreteria.UI.Registros
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
+            Repositorio<Entradas> repositorio = new Repositorio<Entradas>(new Contexto());
             EntradasBLL dbe = new EntradasBLL();
             if (!ExisteEnLaBaseDeDatos())
             {
@@ -143,7 +147,7 @@ namespace ProyectoFerreteria.UI.Registros
 
             Limpiar();
 
-            if (dbe.Eliminar(id))
+            if (repositorio.Eliminar(id))
                 MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 errorProvider.SetError(EntradaInventarioIdnumericUpDown, "No se puede eliminar un producto que no existe");
