@@ -3,6 +3,7 @@ using DAL;
 using Entities;
 using System;
 using System.Collections.Generic;
+using ProyectoFerreteria.UI.Consultas.Recibos;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -45,6 +46,12 @@ namespace ProyectoFerreteria.UI.Consultas
 
             productos = repositorio.GetList(filtro);
             ConsultadataGridView.DataSource = productos;
+        }
+
+        private void Imprimirbutton_Click(object sender, EventArgs e)
+        {
+            reciProductos reciProductos = new reciProductos();
+            reciProductos.Show();
         }
     }
 }

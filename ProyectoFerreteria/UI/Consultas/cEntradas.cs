@@ -3,6 +3,7 @@ using DAL;
 using Entities;
 using System;
 using System.Collections.Generic;
+using ProyectoFerreteria.UI.Consultas.Recibos;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -41,6 +42,12 @@ namespace ProyectoFerreteria.UI.Consultas
 
             entradas = EntradasBLL.GetList(filtro);
             ConsultadataGridView.DataSource = entradas;
+        }
+
+        private void Imprimirbutton_Click(object sender, EventArgs e)
+        {
+            reciEntradas reciEntradas = new reciEntradas();
+            reciEntradas.Show();
         }
     }
 }

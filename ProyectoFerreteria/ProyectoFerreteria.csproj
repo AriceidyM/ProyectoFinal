@@ -98,6 +98,66 @@
     <Compile Include="UI\Consultas\cVentas.Designer.cs">
       <DependentUpon>cVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Consultas\Recibos\recClientes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>recClientes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\Recibos\recEntradas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>recEntradas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\Recibos\reciClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\Recibos\reciClientes.Designer.cs">
+      <DependentUpon>reciClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\Recibos\reciEntradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\Recibos\reciEntradas.Designer.cs">
+      <DependentUpon>reciEntradas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\Recibos\reciProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\Recibos\reciProductos.Designer.cs">
+      <DependentUpon>reciProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\Recibos\reciUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\Recibos\reciUsuarios.Designer.cs">
+      <DependentUpon>reciUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\Recibos\reciVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\Recibos\reciVentas.Designer.cs">
+      <DependentUpon>reciVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\Recibos\recProductos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>recProductos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\Recibos\recUsuarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>recUsuarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\Recibos\recVentas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>recVentas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\Registros\rClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +275,41 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Consultas\cVentas.resx">
       <DependentUpon>cVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\Recibos\recClientes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>recClientes.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\Recibos\recEntradas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>recEntradas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\Recibos\reciClientes.resx">
+      <DependentUpon>reciClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\Recibos\reciEntradas.resx">
+      <DependentUpon>reciEntradas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\Recibos\reciProductos.resx">
+      <DependentUpon>reciProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\Recibos\reciUsuarios.resx">
+      <DependentUpon>reciUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\Recibos\reciVentas.resx">
+      <DependentUpon>reciVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\Recibos\recProductos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>recProductos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\Recibos\recUsuarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>recUsuarios.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\Recibos\recVentas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>recVentas.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\rClientes.resx">
       <DependentUpon>rClientes.cs</DependentUpon>
