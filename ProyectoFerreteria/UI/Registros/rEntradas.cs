@@ -34,7 +34,7 @@ namespace ProyectoFerreteria.UI.Registros
             Entradas inventario = new Entradas();
             inventario.EntradaId = Convert.ToInt32(EntradaInventarioIdnumericUpDown.Value);
             inventario.ProductoId = Convert.ToInt32(ProductocomboBox.SelectedValue);
-            inventario.producto = ProductocomboBox.Text;
+            //inventario.producto = ProductocomboBox.Text;
             inventario.Cantidad = Convert.ToInt32(CantidadnumericUpDown.Value);
             inventario.Fecha = DateTime.Now;
 
@@ -46,6 +46,7 @@ namespace ProyectoFerreteria.UI.Registros
             ProductocomboBox.SelectedValue = inventario.ProductoId;
             CantidadnumericUpDown.Value = inventario.Cantidad;
             FechadateTimePicker.Value = inventario.Fecha;
+
         }
 
         public bool Validar()
@@ -75,6 +76,7 @@ namespace ProyectoFerreteria.UI.Registros
             Repositorio<Entradas> dbe = new Repositorio<Entradas>(new Contexto());
             Entradas inventario = dbe.Buscar((int)((int)EntradaInventarioIdnumericUpDown.Value));
             return (inventario != null);
+
         }
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
@@ -103,16 +105,13 @@ namespace ProyectoFerreteria.UI.Registros
             if (!Validar())
                 return;
             bool paso = false;
-            EntradasBLL entradas = new EntradasBLL();
-            Repositorio<Entradas> repositorio = new Repositorio<Entradas>(new Contexto());
-            Entradas inventario = LlenaClase();
+            EntradasBLL dbe = new EntradasBLL();
+            Entradas inventario = new Entradas();
 
-            
-
-
+            inventario = LlenaClase();
             if (EntradaInventarioIdnumericUpDown.Value == 0)
             {
-                paso = repositorio.Guardar(inventario);
+                paso = dbe.Guardar(inventario);
 
             }
             else
@@ -122,7 +121,7 @@ namespace ProyectoFerreteria.UI.Registros
                     MessageBox.Show("No se puede modificar un producto que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                paso = repositorio.Modificar(inventario);
+                paso = dbe.Modificar(inventario); 
             }
 
             if (paso)
@@ -147,7 +146,7 @@ namespace ProyectoFerreteria.UI.Registros
 
             Limpiar();
 
-            if (repositorio.Eliminar(id))
+            if (dbe.Eliminar(id))
                 MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 errorProvider.SetError(EntradaInventarioIdnumericUpDown, "No se puede eliminar un producto que no existe");

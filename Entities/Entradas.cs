@@ -13,7 +13,6 @@ namespace Entities
         public int EntradaId { get; set; }
         public DateTime Fecha { get; set; }
         public int ProductoId { get; set; }
-        public string producto { get; set; }
         public int Cantidad { get; set; }
 
         public Entradas()
@@ -21,7 +20,6 @@ namespace Entities
             EntradaId = 0;
             Fecha = DateTime.Now;
             ProductoId = 0;
-            producto = string.Empty;
             Cantidad = 0;
         }
 

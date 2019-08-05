@@ -1,6 +1,7 @@
 ﻿using BLL;
 using DAL;
 using Entities;
+using ProyectoFerreteria.UI.Consultas.Recibos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,7 +51,7 @@ namespace ProyectoFerreteria.UI.Registros
             ProductoComboBox.DisplayMember = "Descripcion";
         }
 
-        private Ventas LlenaClase() 
+        private Ventas LlenaClase()
         {
             Ventas venta = new Ventas();
 
@@ -192,13 +193,44 @@ namespace ProyectoFerreteria.UI.Registros
 
         private void AgregarButtton_Click(object sender, EventArgs e)
         {
+            /*List<VentasDetalle> detalle = new List<VentasDetalle>();
+
+            if (FacturaDetalleDataGridView.DataSource != null)
+            {
+                detalle = (List<VentasDetalle>)FacturaDetalleDataGridView.DataSource;
+            }
+
+            if (string.IsNullOrEmpty(ImporteTextBox.Text))
+            {
+                MessageBox.Show("Importe esta vacio , Llene cantidad", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else
+            {
+                detalle.Add(
+                    new VentasDetalle(
+                       id: 0,
+                       ventaId: (int)IdNumericUpDown.Value,
+                       productoId: (int)ProductoComboBox.SelectedValue,
+                       descripcion: ProductoComboBox.Text,
+                       cantidad: ToInt(CantidadTextBox.Text),
+                       precio: ToInt(PrecioTextBox.Text),
+                       importe: ToInt(ImporteTextBox.Text)
+
+                    ));
+
+                FacturaDetalleDataGridView.DataSource = null;
+                FacturaDetalleDataGridView.DataSource = detalle;
+                LlenarValores();
+            }*/
+
             List<VentasDetalle> detalle = new List<VentasDetalle>();
 
             if (FacturaDetalleDataGridView.DataSource != null)
             {
                 detalle = (List<VentasDetalle>)FacturaDetalleDataGridView.DataSource;
             }
-            else if (CantidadTextBox.Text == "0")
+            if (CantidadTextBox.Text == "0")
             {
                 MessageBox.Show("Cantidad no puede ser cero!!", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -217,7 +249,7 @@ namespace ProyectoFerreteria.UI.Registros
                )); ;
 
                 FacturaDetalleDataGridView.DataSource = null;
-                FacturaDetalleDataGridView.DataSource = detalle;
+                FacturaDetalleDataGridView.DataSource = detalle;//
 
                 LlenarValores();
             }
@@ -282,7 +314,7 @@ namespace ProyectoFerreteria.UI.Registros
                     MessageBox.Show("Guardado!!", "Exito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if(TipoVentacomboBox.SelectedIndex == 1)
+                else if (TipoVentacomboBox.SelectedIndex == 1)
                 {
                     Paso = repositorio.Guardar(venta);
                     MessageBox.Show("Guardado!!", "Exito",
@@ -306,6 +338,9 @@ namespace ProyectoFerreteria.UI.Registros
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            reciVentas reciVentas = new reciVentas();
+            reciVentas.Show();
+
             if (Paso)
             {
                 LimpiaObjetos();
@@ -317,11 +352,12 @@ namespace ProyectoFerreteria.UI.Registros
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(IdNumericUpDown.Value);
             Repositorio<Ventas> repositorio = new Repositorio<Ventas>(new Contexto());
-            Ventas venta = repositorio.Buscar(id);
+            int id = Convert.ToInt32(IdNumericUpDown.Value);
 
-            if (venta != null)
+            Ventas ventas = VentasBLL.Buscar(id);
+
+            if (ventas != null)
             {
                 if (repositorio.Eliminar(id))
                 {

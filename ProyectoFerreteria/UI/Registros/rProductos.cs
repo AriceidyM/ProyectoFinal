@@ -51,11 +51,11 @@ namespace ProyectoFerreteria.UI.Registros
                 errorProvider.SetError(DescripciontextBox, "Favor LLenar");
                 paso = false;
             }
-            /*if (PrecionumericUpDown.Value ==0)
+            if (PrecionumericUpDown.Value ==0)
             {
                 errorProvider.SetError(PrecionumericUpDown, "Favor LLenar");
                 paso = false;
-            }*/
+            }
             return paso;
         }
         private void Limpiar()
@@ -88,7 +88,7 @@ namespace ProyectoFerreteria.UI.Registros
                 LlenaCampo(productos);
             }
             else
-                MessageBox.Show("Usuario no encontrado");
+                MessageBox.Show("Producto no encontrado");
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)

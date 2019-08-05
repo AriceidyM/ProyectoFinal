@@ -103,6 +103,7 @@ namespace ProyectoFerreteria.UI.Registros
             UsuariotextBox.Text = string.Empty;
             ClavetextBox.Text = string.Empty;
             FechaIngresodateTimePicker.Value = DateTime.Now;
+            ConfirmaciontextBox.Text = string.Empty;
             errorProvider.Clear();
         }
         private bool ExisteEnLaBaseDeDatos()
@@ -112,7 +113,59 @@ namespace ProyectoFerreteria.UI.Registros
             return (usuario != null);
 
         }
+        public static bool RepetirUser(string descripcion)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
 
+            try
+            {
+                if (db.Usuario.Any(p => p.Usuario.Equals(descripcion)))
+                {
+                    paso = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
+        }
+        public static bool RepetirEmail(string descripcion)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+
+            try
+            {
+                if (db.Usuario.Any(p => p.Email.Equals(descripcion)))
+                {
+                    paso = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
+        }
+        private bool ValidarRepetir()
+        {
+            bool paso = true;
+            errorProvider.Clear();
+
+            if (RepetirUser(UsuariotextBox.Text))
+            {
+                errorProvider.SetError(UsuariotextBox, "No se debe repetir los usuarios.");
+                paso = false;
+            }
+            if (RepetirEmail(EmailstextBox.Text))
+            {
+                errorProvider.SetError(EmailstextBox, "No se debe usar el mismo email que otro.");
+                paso = false;
+            }
+            return paso;
+        }
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             int id;
@@ -148,12 +201,14 @@ namespace ProyectoFerreteria.UI.Registros
 
             if (!Validar())
                 return;
-
+      
             usuarios = LlenaClase();
 
-
+            
             if (UsuarioIDnumericUpDown.Value == 0)
             {
+                if (!ValidarRepetir())
+                    return;
                 paso = dbe.Guardar(usuarios);
             }
             else
@@ -177,6 +232,7 @@ namespace ProyectoFerreteria.UI.Registros
                 else
                     MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
             Limpiar();
         }
 

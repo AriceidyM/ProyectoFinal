@@ -83,6 +83,59 @@ namespace ProyectoFerreteria.UI.Registros
 
             return paso;
         }
+        public static bool RepetirUser(string descripcion)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+
+            try
+            {
+                if (db.Usuario.Any(p => p.Usuario.Equals(descripcion)))
+                {
+                    paso = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
+        }
+        public static bool RepetirEmail(string descripcion)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+
+            try
+            {
+                if (db.Cliente.Any(p => p.Email.Equals(descripcion)))
+                {
+                    paso = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
+        }
+        private bool ValidarRepetir()
+        {
+            bool paso = true;
+            errorProvider.Clear();
+
+            if (RepetirUser(NombrestextBox.Text))
+            {
+                errorProvider.SetError(NombrestextBox, "No se debe repetir los usuarios.");
+                paso = false;
+            }
+            if (RepetirEmail(EmailtextBox.Text))
+            {
+                errorProvider.SetError(EmailtextBox, "No se debe usar el mismo email que otro.");
+                paso = false;
+            }
+            return paso;
+        }
         private void Limpiar()
         {
             ClienteIdnumericUpDown.Value = 0;
@@ -139,6 +192,8 @@ namespace ProyectoFerreteria.UI.Registros
 
             if (ClienteIdnumericUpDown.Value == 0)
             {
+                if (!ValidarRepetir())
+                    return;
                 paso = dbe.Guardar(clientes);
             }
             else
